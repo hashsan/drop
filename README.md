@@ -13,5 +13,5 @@ drop(async file=>{
   document.body.append(img)
   img.src = URL.createObjectURL(file)
 
-})
+},512)
 ```
