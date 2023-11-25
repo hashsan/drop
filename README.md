@@ -20,3 +20,21 @@ drop(async file=>{
 
 },512)
 ```
+
+# upimage
+with drop
+```
+import "https://hashsan.github.io/drop/drop.js"
+import "https://hashsan.github.io/drop/upimage.js"
+
+drop(async file=>{
+  if (!file) {
+    return;
+  }
+  var img = new Image()
+  document.body.append(img)
+  img.src = await upimage(file)  //<------------------------
+
+},512)
+
+```
