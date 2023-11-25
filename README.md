@@ -23,6 +23,10 @@ drop(async file=>{
 
 # upimage
 with drop
+
+- storage
+- https://github.com/hashsan/outputs/tree/main/img
+
 ```
 import "https://hashsan.github.io/drop/drop.js"
 import "https://hashsan.github.io/drop/upimage.js"
