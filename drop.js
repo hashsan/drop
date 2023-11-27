@@ -1,15 +1,20 @@
 import "https://hashsan.github.io/compressorjs/dist/compressor.js"
 
-function resize(file,width){return new Promise((sol,rej)=>{
+function resize(file,width,filter){return new Promise((sol,rej)=>{
   new Compressor(file, {
     quality: 0.6,
     maxWidth:width||512,
+    beforeDraw(context) {
+      if(filter){
+        context.filter = filter;//'grayscale(100%)';
+      }
+    },    
     success:d=>sol(d),
     error:d=>rej(d),
   })
 })}
 
-function drop(cb,size){
+function drop(cb,size,filter){
   var dde=document.documentElement
   dde.ondragover=function(e){
     e.preventDefault();  
@@ -21,7 +26,7 @@ function drop(cb,size){
     if (!file) {
       return;
     }
-    var cfile = await resize(file,size)
+    var cfile = await resize(file,size,filter)
     cb(cfile)//////
   }
 }
